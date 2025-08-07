@@ -1,116 +1,148 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #1d2b64, #f8cdda);
-  padding: 2rem;
-  color: #333;
+  background-color: #f9f9f9;
+  padding: 40px 20px;
 }
 
-.title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: white;
-  text-shadow: 0.5px 0.5px 0.6px #000000;
-}
-
-.pricing-table {
-  max-width: 1100px;
+.pricing-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
   margin: auto;
 }
 
-.pricing-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.card {
-  background: rgb(255, 255, 255);
-  padding: 2rem;
-  border-radius: 20px;
-  width: 300px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.pricing-table {
+  width: 250px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+  border: 1px solid #eee;
+  transition: transform 0.2s ease;
+  flex: 1 1 250px;
+  max-width: 280px;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+.pricing-table:active {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: scale(0.97);
 }
 
-.card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #1d2b64;
-}
-
-.price {
-  font-size: 2.5rem;
-  color: #1d2b64;
-  margin: 1rem 0;
-}
-
-.price span {
-  font-size: 1rem;
-  color: #777;
-}
-
-.card ul {
-  list-style: none;
-  margin: 1.5rem 0;
-  text-align: left;
-}
-
-.card ul li {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  color: #000000;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.8rem 1.5rem;
-  background: #1d2b64;
-  color: rgb(255, 255, 255);
-  border-radius: 30px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background: #f8cdda;
-  color: #1d2b64;
-}
-
-.featured {
-  background: linear-gradient(to bottom, #7589d8, #ffffff);
+.pricing-table .header {
   color: white;
-  transform: scale(1.05);
+  padding: 20px;
 }
 
-.featured .btn {
-  background: rgb(255, 255, 255);
-  color: #1d2b64;
+.pricing-table .price {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 5px;
 }
 
-.featured .btn:hover {
-  background: #f8cdda;
-  color: #1d2b64;
+.pricing-table .currency {
+  font-size: 22px;
+  vertical-align: super;
 }
 
-@media (max-width: 960px) {
-  .pricing-cards {
+.pricing-table .period {
+  display: block;
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 5px;
+  color: #eee;
+}
+
+.features {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.features li {
+  padding: 10px 0;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #f1f1f1;
+}
+
+.features li:first-child {
+  border-top: none;
+}
+
+.action {
+  padding: 20px;
+}
+
+.action button {
+  background-color: #a57878;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.action button:hover {
+  color: #ffffff;
+  transition: 0.9s ease;
+  background-color: #1bc5aa;
+}
+
+/* Color themes */
+.standard .header {
+  background-color: #555;
+}
+.standard .action button {
+  background-color: #555;
+}
+
+.professional .header {
+  background-color: #15b0c6;
+}
+.professional .action button {
+  background-color: #15b0c6;
+}
+
+.premium .header {
+  background-color: #1bc5aa;
+}
+.premium .action button {
+  background-color: #1bc5aa;
+}
+
+.supreme .header {
+  background-color: #f44336;
+}
+.supreme .action button {
+  background-color: #f44336;
+}
+
+/* Active card */
+.premium.active {
+  transform: translateY(-5px);
+  z-index: 1;
+  transition: 0.9s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pricing-section {
     flex-direction: column;
     align-items: center;
+  }
+
+  .pricing-table {
+    max-width: 100%;
+    width: 90%;
   }
 }
